@@ -12,11 +12,11 @@ def index(request):
     return render(request, 'scrape/index.html')
 
 
-def view(request, post_body):
+def scraped(request, post_body):
     context = {'body': post_body}
     return render(request, 'scrape/results.html', context)
 
 
 def post(request):
-    context = {'body': request.POST['body']}
-    return render(request, 'scrape/results.html', context)
+    post_body = request.POST['body']
+    return HttpResponseRedirect(reverse('scrape:scraped', args=(post_body,)))

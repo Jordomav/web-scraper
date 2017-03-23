@@ -6,5 +6,5 @@ app_name = 'scrape'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^scrape/$', views.post, name='post'),
-    url(r'^results/(?P<post_body>[0-9]+)/$', views.view, name='view')
+    url(r'^(?P<post_body>.[ \w-]+)/results/$', views.scraped, name='scraped')
 ]
